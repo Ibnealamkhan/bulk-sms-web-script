@@ -1,0 +1,1226 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>API Documentation - FREE2SMS</title>
+<meta name="description" content="SMS Gateway API. Our Bulk SMS API work with Java, PHP, C#, Python, Ruby, Javascript, etc. Secure, robust and easy to integrate APIs to send Promotional, Transactional, OTP, Quick Transactional SMS." />
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+<meta property="og:image" content="https://www.free2sms.ml/logo.png" />
+<meta property="og:description" content="FREE2SMS API Documentation" />
+<meta property="og:url" content="https://free2sms.ml" />
+<link rel="stylesheet" href="https://docs.fast2sms.com/css/style.css" />
+<link rel="shortcut icon" href="https://www.free2sms.ml/logo.png" />
+<script src="https://docs.fast2sms.com/js/all.js"></script>
+<script>
+    $(function() {
+        setupLanguages(["bash","php","java","csh","c","python","ruby","javascript","nodejs"]);
+    });
+    </script>
+</head><body class="">
+<a href="#" id="nav-button">
+<span>
+NAV
+<img src="https://docs.fast2sms.com/images/navbar.png" />
+</span>
+</a>
+<div class="tocify-wrapper">
+<img src="https://free2sms.ml/logo.png" style="margin-top: 5px;margin-left: 20px;width: 180px;" />
+<div class="lang-selector">
+<!--
+<a href="#" data-language-name="bash">cURL</a>
+-->
+<a href="#" data-language-name="php">PHP</a>
+<!--
+<a href="#" data-language-name="java">JAVA</a>
+<a href="#" data-language-name="csh">C#</a>
+<a href="#" data-language-name="c">C</a>
+<a href="#" data-language-name="python">Python</a>
+<a href="#" data-language-name="ruby">Ruby</a>
+<a href="#" data-language-name="javascript">JavaScript</a>
+<a href="#" data-language-name="nodejs">NodeJS</a>
+-->
+</div>
+<br>
+<div id="toc">
+</div>
+<ul class="toc-footer">
+<li><a href='https://www.free2sms.ml'>Sign up for API Key</a></li>
+</ul>
+</div>
+<div class="page-wrapper">
+<div class="dark-box"></div>
+<div class="content">
+
+<h1>Overview</h1>
+<p>SMS Gateway API. Our Bulk SMS API work with PHP, JAVA, C#, C, Python, Ruby, Javascript, NodeJS, etc. Secure, robust and easy to integrate APIs to send Promotional, Transactional & Quick Transactional SMS via REST API. Check <a href="https://www.fast2sms.com/Bulk-SMS-Price" target="_blank">Bulk SMS Price here</a>.</p>
+<h2>Authorization Key</h2>
+<p>FREE2SMS expects for the <b>API Key</b> to be included in all API requests to the server in a header for POST requests & in query parameters for GET requests.<br>
+<a target="_blank" href="https://free2sms.ml/" style="color:green;font-weight: bold;">Get Your API Authorization Key</a> from FREE2SMS Dev API section for FREE which you need to add in each API request as following:</p>
+<p><code><b>GET</b> https://free2sms.ml/dev/wallet?authorization=<b>YOUR_API_KEY</b></code></p>
+<p><code><b>POST</b> authorization: <b>YOUR_API_KEY</b></code></p>
+<aside class="notice">
+You must replace <code><b>YOUR_API_KEY</b></code> with your FREE2SMS account <a target="_blank" href="https://free2sms.ml/">API Authorization Key</a> which look like this: "<code>weBQKBrtZzLnD2ZUEnUYJIO40zZGnjgZm3BA1SAUd0qZ56gHm0k3X45DWR9c</code>"
+</aside>
+<h1>Bulk SMS API</h1>
+<p><b>You can use this Bulk SMS API to send Promotional & Transactional SMS.</b></p>
+<p style="font-size:12px"><b>Promotional Route:</b> As per TRAI, SMS can only be sent to <a href="https://www.fast2sms.com/help/what-is-dnd-nondnd-numbers/" target="_blank">Non DND numbers</a> within the time frame of 9 AM to 9 PM only. Each SMS sent from promotional route after 9 PM will auto schedule on 9 AM (in morning).</p>
+<p style="font-size:12px"><b>Transactional Route:</b> This route is for company/organization,
+who want to send non-promotional SMS without approval (open template) on <a href="https://www.fast2sms.com/help/what-is-dnd-nondnd-numbers/" target="_blank">DND + Non DND numbers</a> 24x7.<br><b>You need to submit company documents before using this route.</b><br>Email: 
+<br>You can check your sent SMS delivery reports in FREE2SMS <a href="https://free2sms.ml" target="_blank">Delivery Report section.</p>
+</a>
+<aside class="notice">
+If you want to send OTP, Alerts, Informative SMS you can use Quick Trasactional route to send SMS on All Mobile Numbers without submitting company documents. <a href="https://www.fast2sms.com/help/quick-transactional-sms/" target="_blank">Click here for more info.</a>
+</aside>
+<!--
+<h2>GET Method</h2>
+<blockquote>
+<p><b>GET</b> https://www.fast2sms.com/dev/bulk</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+  'https://www.fast2sms.com/dev/bulk?authorization=YOUR_API_KEY&sender_id=FSTSMS&message=This is test message&language=english&route=p&numbers=9999999999,8888888888,7777777777'</code></pre>
+<pre><code class="language-php"><?php
+          
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://www.fast2sms.com/dev/bulk?authorization=YOUR_API_KEY&sender_id=FSTSMS&message=".urlencode('This is a test message')."&language=english&route=p&numbers=".urlencode('9999999999,8888888888,7777777777'),
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_SSL_VERIFYHOST => 0,
+  CURLOPT_SSL_VERIFYPEER => 0,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => array(
+    "cache-control: no-cache"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}</code></pre>
+<pre><code class="language-javascript">var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://www.fast2sms.com/dev/bulk?authorization=YOUR_API_KEY&sender_id=FSTSMS&message=This is test message&language=english&route=p&numbers=9999999999,8888888888,7777777777",
+  "method": "GET"
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});</code></pre>
+<pre><code class="language-ruby">require 'uri'
+require 'net/http'
+
+url = URI("https://www.fast2sms.com/dev/bulk?authorization=YOUR_API_KEY&sender_id=FSTSMS&message=This is a test message&language=english&route=p&numbers=9999999999,8888888888,7777777777")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Get.new(url)
+request["cache-control"] = 'no-cache'
+
+response = http.request(request)
+puts response.read_body</code></pre>
+<pre><code class="language-python">import requests
+
+url = "https://www.fast2sms.com/dev/bulk"
+
+querystring = {"authorization":"YOUR_API_KEY","sender_id":"FSTSMS","message":"This is test message","language":"english","route":"p","numbers":"9999999999,8888888888,7777777777"}
+
+headers = {
+    'cache-control': "no-cache"
+}
+
+response = requests.request("GET", url, headers=headers, params=querystring)
+
+print(response.text)</code></pre>
+<pre><code class="language-java">HttpResponse<String> response = Unirest.get("https://www.fast2sms.com/dev/bulk?authorization=YOUR_API_KEY&sender_id=FSTSMS&message=This%20is%20a%20test%20message&language=english&route=p&numbers=9999999999,8888888888,7777777777")
+  .header("cache-control", "no-cache")
+  .asString();</code></pre>
+<pre><code class="language-csh">var client = new RestClient(<span style="color:#e6db74;">"https://www.fast2sms.com/dev/bulk?authorization=YOUR_API_KEY&sender_id=FSTSMS&message=This%20is%20a%20test%20message&language=english&route=p&numbers=9999999999,8888888888,7777777777"</span>);
+var request = new RestRequest(Method.GET);
+IRestResponse response = client.Execute(request);</code></pre>
+<pre><code class="language-c">CURL *hnd = curl_easy_init();
+
+curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, <span style="color:#e6db74;">"GET"</span>);
+curl_easy_setopt(hnd, CURLOPT_URL, <span style="color:#e6db74;">"https://www.fast2sms.com/dev/bulk?authorization=YOUR_API_KEY&sender_id=FSTSMS&message=This%20is%20a%20test%20message&language=english&route=p&numbers=9999999999,8888888888,7777777777"</span>);
+
+CURLcode ret = curl_easy_perform(hnd);</code></pre>
+<pre><code class="language-nodejs">var unirest = require("unirest");
+
+var req = unirest("GET", "https://www.fast2sms.com/dev/bulk");
+
+req.query({
+  "authorization": "YOUR_API_KEY",
+  "sender_id": "FSTSMS",
+  "message": "This is a test message",
+  "language": "english",
+  "route": "p",
+  "numbers": "9999999999,8888888888,7777777777",
+});
+
+req.headers({
+  "cache-control": "no-cache"
+});
+
+
+req.end(function (res) {
+  if (res.error) throw new Error(res.error);
+
+  console.log(res.body);
+});
+
+</code></pre>
+<blockquote>
+Promotional Route Success Response:
+</blockquote>
+<pre><code class="language-json">{
+    "return": true,
+    "request_id": "lwdtp7cjyqxvfe9",
+    "message": [
+        "Message sent successfully to NonDND numbers"
+    ]
+}</code></pre>
+<blockquote>
+Transactional Route Success Response:
+</blockquote>
+<pre><code class="language-json">{
+    "return": true,
+    "request_id": "vrc5yp9k4sfze6t",
+    "message": [
+        "Message sent successfully"
+    ]
+}</code></pre>
+<p>Following are the parameter to be used for GET API:</p>
+<h3>HTTP Request</h3>
+<p><code>GET https://www.fast2sms.com/dev/bulk</code></p>
+<aside class="success">
+You must replace <code><b>YOUR_API_KEY</b></code> with your Fast2SMS account <a target="_blank" href="https://www.fast2sms.com/dashboard/dev-api">API Authorization Key.</a>
+</aside>
+<h3>Body</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>authorization</td>
+<td>true</td>
+<td>Provide "<code><b>YOUR_API_KEY</b></code>". <a href="https://www.fast2sms.com/dashboard/dev-api" target="_blank">Sign up for API Key</a></td>
+</tr>
+<tr>
+<td>sender_id</td>
+<td>true</td>
+<td>"<b><code>FSTSMS</code></b>" is the default sender id, you can create your own custom 6 digit sender id on <a href="https://www.fast2sms.com/help/sender-id-terms-and-conditions/" target="_blank">Fast2SMS.</a></td>
+</tr>
+<tr>
+<td>message</td>
+<td>true</td>
+<td>Message "<code><b>text</b></code>" to be sent</td>
+</tr>
+<tr>
+<td>language</td>
+<td>true</td>
+<td>Default language is "<b><code>english</code></b>". You can use "<code><b>unicode</b></code>" for other languages</td>
+</tr>
+<tr>
+<td>route</td>
+<td>true</td>
+<td>For promotional use "<b><code>p</code></b>" & For transactional use "<b><code>t</code></b>"</td>
+</tr>
+<tr>
+<td>numbers</td>
+<td>true</td>
+<td>You can send multiple mobile numbers seperated by comma like: "<code><b>8888888888,9999999999,6666666666</b></code>"</td>
+</tr>
+<tr>
+<td>flash</td>
+<td>false</td>
+<td>This field is optional, it will use "<code><b>0</b></code>" as default value or you can set to "<code><b>1</b></code>" for sending <a href="https://www.fast2sms.com/help/flash-sms/" target="_blank">flash message.</a></td>
+</tr>
+</tbody>
+</table>
+-->
+
+<h2>POST Method</h2>
+<blockquote>
+<p><b>POST</b> https://free2sms.ml/sendhttp/api/curl_server.php</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+  https://www.fast2sms.com/dev/bulk \
+  -H 'authorization: YOUR_API_KEY' \
+  -d 'sender_id=FSTSMS&message=This is a test message&language=english&route=p&numbers=9999999999,8888888888,7777777777'</code></pre>
+<pre><code class="language-php">
+
+$data=[
+'mobiles' => '7086xxxxx', //Enter Receiver phone number
+'message' => 'TEST MESSAGE', //Type Your Message Here
+'api_key' => 'FREE2SMS_API_KEY' //Your FREE2SMS api ley
+];
+$data = json_encode($data);
+
+ $url="https://free2sms.ml/sendhttp/api/curl_server.php";
+ $ch = curl_init();
+ curl_setopt_array($ch, array(
+ CURLOPT_URL => $url,
+ CURLOPT_RETURNTRANSFER => true,
+ CURLOPT_POST => true,
+ CURLOPT_POSTFIELDS => $data
+ ));
+ curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+ $output = curl_exec($ch);
+ curl_close($ch);
+ echo $output;  
+ 
+</code></pre>
+<!--
+<pre><code class="language-javascript">var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://www.fast2sms.com/dev/bulk",
+  "method": "POST",
+  "headers": {
+    "authorization": "YOUR_API_KEY",
+  },
+  "data": {
+    "sender_id": "FSTSMS",
+    "message": "This is a test message",
+    "language": "english",
+    "route": "p",
+    "numbers": "9999999999,8888888888,7777777777",
+  }
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});</code></pre>
+<pre><code class="language-ruby">require 'uri'
+require 'net/http'
+
+url = URI("https://free2sms.ml/sendhttp/api/curl_server.php")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Post.new(url)
+request["authorization"] = 'YOUR_API_KEY'
+request.body = "sender_id=FSTSMS&message=This is a test message&language=english&route=p&numbers=9999999999,8888888888,7777777777"
+
+response = http.request(request)
+puts response.read_body</code></pre>
+<pre><code class="language-python">import requests
+
+url = "https://free2sms.ml/sendhttp/api/curl_server.php"
+
+payload = "sender_id=FSTSMS&message=This%20is%20a%20test%20message&language=english&route=p&numbers=9999999999,8888888888,7777777777"
+headers = {
+    'authorization': "YOUR_API_KEY",
+    'Content-Type': "application/x-www-form-urlencoded",
+    'Cache-Control': "no-cache",
+    }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+
+print(response.text)</code></pre>
+<pre><code class="language-java">HttpResponse<String> response = Unirest.post("https://free2sms.ml/sendhttp/api/curl_server.php")
+  .header("authorization", "YOUR_API_KEY")
+  .header("Content-Type", "application/x-www-form-urlencoded")
+  .body("sender_id=FSTSMS&message=This%20is%20a%20test%20message&language=english&route=p&numbers=9999999999,8888888888,7777777777")
+  .asString();</code></pre>
+<pre><code class="language-csh">var client = new RestClient(<span style="color:#e6db74;">"https://free2sms.ml/sendhttp/api/curl_server.php"</span>);
+var request = new RestRequest(Method.POST);
+request.AddHeader(<span style="color:#e6db74;">"content-type"</span>, <span style="color:#e6db74;">"application/x-www-form-urlencoded"</span>);
+request.AddHeader(<span style="color:#e6db74;">"authorization"</span>, <span style="color:#e6db74;">"YOUR_API_KEY"</span>);
+request.AddParameter(<span style="color:#e6db74;">"sender_id"</span>, "<span style="color:#e6db74;">FSTSMS"</span>);
+request.AddParameter(<span style="color:#e6db74;">message"</span>, <span style="color:#e6db74;">"This is a test message"</span>);
+request.AddParameter(<span style="color:#e6db74;">"language"</span>, <span style="color:#e6db74;">"english"</span>);
+request.AddParameter(<span style="color:#e6db74;">"route"</span>, <span style="color:#e6db74;">"p"</span>);
+request.AddParameter(<span style="color:#e6db74;">"numbers"</span>, <span style="color:#e6db74;">"9999999999,8888888888,7777777777"</span>);
+IRestResponse response = client.Execute(request);</code></pre>
+<pre><code class="language-c">CURL *hnd = curl_easy_init();
+
+curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "POST");
+curl_easy_setopt(hnd, CURLOPT_URL, <span style="color:#e6db74;">"https://www.fast2sms.com/dev/bulk"</span>);
+
+struct curl_slist *headers = NULL;
+headers = curl_slist_append(headers, "content-type: application/x-www-form-urlencoded");
+headers = curl_slist_append(headers, "authorization: YOUR_API_KEY");
+curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
+
+curl_easy_setopt(hnd, CURLOPT_POSTFIELDS, "sender_id=FSTSMS&message=This%20is%20a%20test%20message&language=english&route=p&numbers=9999999999,8888888888,7777777777");
+
+CURLcode ret = curl_easy_perform(hnd);</code></pre>
+<pre><code class="language-nodejs">var unirest = require("unirest");
+
+var req = unirest("POST", "https://free2sms.ml/sendhttp/api/curl_server.php");
+
+req.headers({
+  "authorization": "YOUR_API_KEY"
+});
+
+req.form({
+  "sender_id": "FSTSMS",
+  "message": "This is a test message",
+  "language": "english",
+  "route": "p",
+  "numbers": "9999999999,8888888888,7777777777",
+});
+
+req.end(function (res) {
+  if (res.error) throw new Error(res.error);
+
+  console.log(res.body);
+});
+
+</code></pre>
+-->
+<blockquote>
+Promotional Route Success Response:
+</blockquote>
+<pre><code class="language-json">{
+    "return": true,
+    "request_id": "lwdtp7cjyqxvfe9",
+    "message": [
+        "Message sent successfully to NonDND numbers"
+    ]
+}</code></pre>
+<blockquote>
+Transactional Route Success Response:
+</blockquote>
+<pre><code class="language-json">{
+    "return": true,
+    "request_id": "vrc5yp9k4sfze6t",
+    "message": [
+        "Message sent successfully"
+    ]
+}</code></pre>
+<p>Following are the parameter to be used for POST API: </p>
+<h3>HTTP Request</h3>
+<p><code>POST https://free2sms.ml/sendhttp/api/curl_server.php</code></p>
+<h3>Headers</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>authorization</td>
+<td>Provide "<code><b>YOUR_API_KEY</b></code>". <a href="https://free2sms.ml/" target="_blank">Sign up for API Key</a></td>
+</tr>
+</tbody>
+</table>
+<aside class="success">
+You must replace <code><b>YOUR_API_KEY</b></code> with your FREE2SMS account <a target="_blank" href="https://free2sms.ml/">API Authorization Key.</a>
+</aside>
+<!--
+<h3>Body</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sender_id</td>
+<td>true</td>
+<td>"<b><code>FRESMS</code></b>" is the default sender id, you can create your own custom 6 digit sender id on <a href="https://www.fast2sms.com/help/sender-id-terms-and-conditions/" target="_blank">FREE2SMS</a></td>
+</tr>
+<tr>
+<td>message</td>
+<td>true</td>
+<td>Message "<code><b>text</b></code>" to be sent</td>
+</tr>
+<tr>
+<td>language</td>
+<td>true</td>
+<td>Default language is "<b><code>english</code></b>". You can use "<code><b>unicode</b></code>" for other languages</td>
+</tr>
+<tr>
+<td>route</td>
+<td>true</td>
+<td>For promotional use "<b><code>p</code></b>" & For transactional use "<b><code>t</code></b>"</td>
+</tr>
+<tr>
+<td>numbers</td>
+<td>true</td>
+<td>You can send multiple mobile numbers seperated by comma like: "<code><b>8888888888,9999999999,6666666666</b></code>"</td>
+</tr>
+<tr>
+<td>flash</td>
+<td>false</td>
+<td>This field is optional, it will use "<code><b>0</b></code>" as default value or you can set to "<code><b>1</b></code>" for sending <a href="https://www.fast2sms.com/help/flash-sms/" target="_blank">flash message.</a></td>
+</tr>
+</tbody>
+</table>
+-->
+<!--
+
+<h1>Quick Transactional API</h1>
+<p><b>Fast2SMS</b> has introduced a new service named quick transactional route in which you can send SMS to DND + Non DND numbers without submitting company documents (<b>template based SMS</b>) mainly for One time password (OTP), Alerts, Informative SMS in which the message text is fixed with some dynamic values like:</p>
+<p style="font-size:12px"><code>Your OTP is: <b>{#AA#}</b></code> (it contains 5 digit dynamic value named {#AA#})</p>
+<p style="font-size:12px"><code>Dear <b>{#AA#}</b>, Your Mobile Number is: <b>{#EE#}</b> & Password is: <b>{#CC#}</b> </code><br>(it contains three variables for name: {#AA#}, for mobile number: {#EE#} & for password: {#CC#})</p>
+<aside class="notice">
+<b>How to create your message template with dynamic variable <a target="_blank" href="https://www.fast2sms.com/help/quick-transactional-sms/">Read this.</a></b>
+</aside>
+<h2>How To Use</h2>
+<p>1) Create your message template with fixed text or with some dynamic variables from Fast2SMS Bulk SMS section <a target="_blank" href="https://www.fast2sms.com/help/quick-transactional-sms/">Read this.</a><p>
+<p>2) After approval you need to get your <b>Template ID</b> by hitting following link with your API key:<p>
+<code><b>https://www.fast2sms.com/dev/quick-templates?authorization=YOUR_API_KEY</b></code>
+<p>3) You'll get <b>list of all approved templates as shown here-></b>:</p>
+<p>
+<blockquote style="float:none;font-weight: bold">
+<p><b>GET</b> https://www.fast2sms.com/dev/quick-templates?authorization=YOUR_API_KEY</p>
+</blockquote>
+<pre style="float:none">{
+"return": true,
+  "data":
+  [
+      {
+        "template_id": <span class="hljs-string">596</span>,
+        "message": "Your OTP is <span class="hljs-string">{#AA#}</span>"</span>,    
+      },
+      {
+        "template_id": <span class="hljs-string">768</span>,
+        "message": "Dear <span class="hljs-string">{#AA#}</span>, Your Mobile Number is: <span class="hljs-string">{#EE#}</span> & Password is: <span class="hljs-string">{#CC#}</span>",     
+      },   
+    ]
+}</pre></p><br>
+<p>4) Now you need to use your <b>Template ID & the Variables (in same sequence)</b> while hitting the GET or POST API to send the SMS to DND + Non DND numbers 24x7 (with high priority).</p>
+
+<h2>GET</h2>
+<blockquote>
+<p><b>GET</b> https://www.fast2sms.com/dev/bulk</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+  'https://www.fast2sms.com/dev/bulk?authorization=YOUR_API_KEY&sender_id=FSTSMS&language=english&route=qt&numbers=9999999999,8888888888,7777777777&message=YOUR_QT_TEMPLATE_ID&variables={AA}|{CC}&variables_values=12345|asdaswdx' \
+  -H 'cache-control: no-cache'</code></pre>
+<pre><code class="language-php"><?php
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://www.fast2sms.com/dev/bulk?authorization=YOUR_API_KEY&sender_id=FSTSMS&language=english&route=qt&numbers=".urlencode('9999999999,8888888888,7777777777')."&message=YOUR_QT_TEMPLATE_ID&variables=".urlencode('{AA}|{CC}')."&variables_values=".urlencode('12345|asdaswdx')."",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_SSL_VERIFYHOST => 0,
+  CURLOPT_SSL_VERIFYPEER => 0,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => array(
+    "cache-control: no-cache"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}</code></pre>
+<pre><code class="language-java">HttpResponse<String> response = Unirest.get("https://www.fast2sms.com/dev/bulk?authorization=YOUR_API_KEY&sender_id=FSTSMS&language=english&route=qt&numbers=9999999999,8888888888,7777777777&message=YOUR_QT_TEMPLATE_ID&variables={AA}|{CC}&variables_values=12345|asdaswdx")
+  .header("cache-control", "no-cache")
+  .asString();</code></pre>
+<pre><code class="language-csh">var client = new RestClient(<span style="color:#e6db74;">"https://www.fast2sms.com/dev/bulk?authorization=YOUR_API_KEY&sender_id=FSTSMS&language=english&route=qt&numbers=9999999999,8888888888,7777777777&message=YOUR_QT_TEMPLATE_ID&variables={AA}|{CC}&variables_values=12345|asdaswdx"</span>);
+var request = new RestRequest(Method.GET);
+IRestResponse response = client.Execute(request);</code></pre>
+<pre><code class="language-c">CURL *hnd = curl_easy_init();
+
+curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, <span style="color:#e6db74;">"GET"</span>);
+curl_easy_setopt(hnd, CURLOPT_URL, <span style="color:#e6db74;">"https://www.fast2sms.com/dev/bulk?authorization=YOUR_API_KEY&sender_id=FSTSMS&language=english&route=qt&numbers=9999999999,8888888888,7777777777&message=YOUR_QT_TEMPLATE_ID&variables={AA}|{CC}&variables_values=12345|asdaswdx"</span>);
+
+CURLcode ret = curl_easy_perform(hnd);</code></pre>
+<pre><code class="language-javascript">var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://www.fast2sms.com/dev/bulk?authorization=YOUR_API_KEY&sender_id=FSTSMS&language=english&route=qt&numbers=9999999999,8888888888,7777777777&message=YOUR_QT_TEMPLATE_ID&variables={AA}|{CC}&variables_values=12345|asdaswdx",
+  "method": "GET",
+  "headers": {
+    "cache-control": "no-cache"
+  }
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});</code></pre>
+<pre><code class="language-ruby">require 'uri'
+require 'net/http'
+
+url = URI("https://www.fast2sms.com/dev/bulk?authorization=YOUR_API_KEY&sender_id=FSTSMS&language=english&route=qt&numbers=9999999999,8888888888,7777777777&message=YOUR_QT_TEMPLATE_ID&variables={AA}|{CC}&variables_values=12345|asdaswdx")
+
+http = Net::HTTP.new(url.host, url.port)
+
+request = Net::HTTP::Get.new(url)
+request["cache-control"] = 'no-cache'
+
+response = http.request(request)
+puts response.read_body</code></pre>
+<pre><code class="language-python">import requests
+
+url = "https://www.fast2sms.com/dev/bulk"
+
+querystring = {"authorization":"YOUR_API_KEY","sender_id":"FSTSMS","language":"english","route":"qt","numbers":"9999999999,8888888888,7777777777","message":"YOUR_QT_TEMPLATE_ID","variables":"{AA}|{CC}","variables_values":"12345|asdaswdx"}
+
+headers = {
+    'cache-control': "no-cache"
+    }
+
+response = requests.request("GET", url, headers=headers, params=querystring)
+
+print(response.text))</code></pre>
+<pre><code class="language-nodejs">
+var unirest = require("unirest");
+var req = unirest("GET", "https://www.fast2sms.com/dev/bulk");
+req.query({
+  "authorization": "YOUR_API_KEY",
+  "sender_id": "FSTSMS",
+  "language": "english",
+  "route": "qt",
+  "numbers": "9999999999,8888888888,7777777777",
+  "message": "YOUR_QT_TEMPLATE_ID",
+  "variables": "{AA}|{CC}",
+  "variables_values": "12345|asdaswdx"
+});
+
+req.headers({
+  "cache-control": "no-cache"
+});
+
+req.end(function (res) {
+  if (res.error) throw new Error(res.error);
+
+  console.log(res.body);
+});</code></pre>
+<blockquote>
+Quick Transactional Route Success Response:
+</blockquote>
+<pre><code class="language-json">{
+    "return": true,
+    "request_id": "drhgp7cjyqxvfe9",
+    "message": [
+        "Message sent successfully"
+    ]
+}</code></pre>
+<p>Following are the parameter to be used for GET API:</p>
+<h3>HTTP Request</h3>
+<p><code>GET https://www.fast2sms.com/dev/bulk</code></p>
+<aside class="success">
+You must replace <code><b>YOUR_API_KEY</b></code> with your Fast2SMS account <a target="_blank" href="https://www.fast2sms.com/dashboard/dev-api">API Authorization Key.</a>
+</aside>
+<h3>Query Paramters</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>authorization</td>
+<td>true</td>
+<td>Provide "<code><b>YOUR_API_KEY</b></code>". <a href="https://www.fast2sms.com/dashboard/dev-api" target="_blank">Sign up for API Key</a></td>
+</tr>
+<tr>
+<td>sender_id</td>
+<td>true</td>
+<td>"<b><code>FSTSMS</code></b>" is the default sender id, you can create your own custom 6 digit sender id on <a href="https://www.fast2sms.com/help/sender-id-terms-and-conditions/" target="_blank">Fast2SMS.</a></td>
+</tr>
+<tr>
+<td>language</td>
+<td>true</td>
+<td>Use "<b><code>english</code></b>". You can't use other languages in Quick Transactional</td>
+</tr>
+<tr>
+<td>route</td>
+<td>true</td>
+<td>Use "<b><code>qt</code></b>" as its Quick Transactional route</td>
+</tr>
+<tr>
+<td>numbers</td>
+<td>true</td>
+<td>You can send multiple mobile numbers seperated by comma like: "<code><b>8888888888,9999999999,6666666666</b></code>"</td>
+</tr>
+<tr>
+<td>message</td>
+<td>true</td>
+<td>Your Template ID like "<code><b>786</b></code>", get your ID <a href="https://www.fast2sms.com/dev/quick-templates?authorization=YOUR_API_KEY" target="_blank">here</a></td>
+</tr>
+<tr>
+<td>variables</td>
+<td>true</td>
+<td>Variables used like: "<code><b>{AA}|{EE}|{CC}</b></code>" in same sequence which is used at the time of creation seperated by pipe "|".<br><b>NOTE:</b><br>1) In GET requests you need to remove "<code><b>#</b></code>" from the variables as it can't parse by the browser.<br>2) If your message don't have any variables you can skip variables field.</td>
+</tr>
+<tr>
+<td>variables_values</td>
+<td>true</td>
+<td>Above variables values like: "<code><b>Rahul|8888888888|6695</b></code>" seperated by pipe "|".<br><b>NOTE:</b><br>1) Use the same variable sequence in which you've created the message.<br>2) If your message don't have any variables you can skip variables_values field.</td>
+</tr>
+<tr>
+<td>flash</td>
+<td>false</td>
+<td>This field is optional, it will use "<code><b>0</b></code>" as default value or you can set to "<code><b>1</b></code>" for sending <a href="https://www.fast2sms.com/help/flash-sms/" target="_blank">flash message.</a></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2>POST</h2>
+<blockquote>
+<p><b>POST</b> https://www.fast2sms.com/dev/bulk</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+  https://www.fast2sms.com/dev/bulk \
+  -H 'authorization: YOUR_API_KEY' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/x-www-form-urlencoded' \
+  -d 'sender_id=FSTSMS&language=english&route=qt&numbers=9999999999,8888888888,7777777777&message=YOUR_QT_SMS_ID&variables={#AA#}|{#CC#}&variables_values=12345|asdaswdx'</code></pre>
+<pre><code class="language-php"><?php
+
+$field = array(
+    "sender_id" => "FSTSMS",
+    "language" => "english",
+    "route" => "qt",
+    "numbers" => "9999999999,8888888888,7777777777",
+    "message" => "YOUR_QT_SMS_ID",
+    "variables" => "{#AA#}|{#CC#}",
+    "variables_values" => "12345|asdaswdx"
+);
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://www.fast2sms.com/dev/bulk",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_SSL_VERIFYHOST => 0,
+  CURLOPT_SSL_VERIFYPEER => 0,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => json_encode($field),
+  CURLOPT_HTTPHEADER => array(
+    "authorization: YOUR_API_KEY",
+    "cache-control: no-cache",
+    "accept: */*",
+    "content-type: application/json"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}</code></pre>
+<pre><code class="language-javascript">var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://www.fast2sms.com/dev/bulk",
+  "method": "POST",
+  "headers": {
+    "authorization": "YOUR_API_KEY",
+    "cache-control": "no-cache",
+    "content-type": "application/x-www-form-urlencoded"
+  },
+  "data": {
+    "sender_id": "FSTSMS",
+    "language": "english",
+    "route": "qt",
+    "numbers": "9999999999,8888888888,7777777777",
+    "message": "YOUR_QT_SMS_ID",
+    "variables": "{#AA#}|{#CC#}",
+    "variables_values": "12345|asdaswdx"
+  }
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});</code></pre>
+<pre><code class="language-csh">var client = new RestClient(<span style="color:#e6db74;">"https://www.fast2sms.com/dev/bulk"</span>);
+var request = new RestRequest(Method.POST);
+request.AddHeader(<span style="color:#e6db74;">"content-type"</span>, <span style="color:#e6db74;">"application/x-www-form-urlencoded"</span>);
+request.AddHeader(<span style="color:#e6db74;">"authorization"</span>, <span style="color:#e6db74;">"YOUR_API_KEY"</span>);
+request.AddParameter(<span style="color:#e6db74;">"sender_id"</span>, "<span style="color:#e6db74;">FSTSMS"</span>);
+request.AddParameter(<span style="color:#e6db74;">"language"</span>, <span style="color:#e6db74;">"english"</span>);
+request.AddParameter(<span style="color:#e6db74;">"route"</span>, <span style="color:#e6db74;">"qt"</span>);
+request.AddParameter(<span style="color:#e6db74;">"numbers"</span>, <span style="color:#e6db74;">"9999999999,8888888888,7777777777"</span>);
+request.AddParameter(<span style="color:#e6db74;">"message"</span>, <span style="color:#e6db74;">"YOUR_QT_SMS_ID"</span>);
+request.AddParameter(<span style="color:#e6db74;">"variables"</span>, <span style="color:#e6db74;">"{#AA#}|{#CC#}"</span>);
+request.AddParameter(<span style="color:#e6db74;">"variables_values"</span>, <span style="color:#e6db74;">"12345|asdaswdx"</span>);
+
+IRestResponse response = client.Execute(request);</code></pre>
+<pre><code class="language-c">CURL *hnd = curl_easy_init();
+
+curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "POST");
+curl_easy_setopt(hnd, CURLOPT_URL, <span style="color:#e6db74;">"https://www.fast2sms.com/dev/bulk"</span>);
+
+struct curl_slist *headers = NULL;
+headers = curl_slist_append(headers, "content-type: application/x-www-form-urlencoded");
+headers = curl_slist_append(headers, "authorization: YOUR_API_KEY");
+curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
+
+curl_easy_setopt(hnd, CURLOPT_POSTFIELDS, "sender_id=FSTSMS&language=english&route=qt&numbers=9999999999,8888888888,7777777777&message=YOUR_QT_SMS_ID&variables={#AA#}|{#CC#}&variables_values=12345|asdaswdx");
+
+CURLcode ret = curl_easy_perform(hnd);</code></pre>
+<pre><code class="language-ruby">require 'uri'
+require 'net/http'
+
+url = URI("https://www.fast2sms.com/dev/bulk")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Post.new(url)
+request["authorization"] = 'YOUR_API_KEY'
+request["cache-control"] = 'no-cache'
+request["content-type"] = 'application/x-www-form-urlencoded'
+request.body = "sender_id=FSTSMS&language=english&route=qt&numbers=9999999999,8888888888,7777777777&message=YOUR_QT_SMS_ID&variables={#AA#}|{#CC#}&variables_values=12345|asdaswdx"
+
+response = http.request(request)
+puts response.read_body</code></pre>
+<pre><code class="language-python">import requests
+
+url = "https://www.fast2sms.com/dev/bulk"
+
+payload = "sender_id=FSTSMS&language=english&route=qt&numbers=9999999999,8888888888,7777777777&message=YOUR_QT_SMS_ID&variables={#AA#}|{#CC#}&variables_values=12345|asdaswdx"
+headers = {
+    'authorization': "YOUR_API_KEY",
+    'cache-control': "no-cache",
+    'content-type': "application/x-www-form-urlencoded"
+    }
+
+response = requests.request("POST", url, data=payload, headers=headers)
+
+print(response.text)</code></pre>
+<pre><code class="language-java">HttpResponse<String> response = Unirest.post("https://www.fast2sms.com/dev/bulk")
+  .header("authorization", "YOUR_API_KEY")
+  .header("cache-control", "no-cache")
+  .header("content-type", "application/x-www-form-urlencoded")
+  .body("sender_id=FSTSMS&language=english&route=qt&numbers=9999999999,8888888888,7777777777&message=YOUR_QT_SMS_ID&variables={#AA#}|{#CC#}&variables_values=12345|asdaswdx")
+  .asString();</code></pre>
+<pre><code class="language-nodejs">var unirest = require("unirest");
+
+var req = unirest("POST", "https://www.fast2sms.com/dev/bulk");
+
+req.headers({
+  "content-type": "application/x-www-form-urlencoded",
+  "cache-control": "no-cache",
+  "authorization": "YOUR_API_KEY"
+});
+
+req.form({
+  "sender_id": "FSTSMS",
+  "language": "english",
+  "route": "qt",
+  "numbers": "9999999999,8888888888,7777777777",
+  "message": "YOUR_QT_SMS_ID",
+  "variables": "{#AA#}|{#CC#}",
+  "variables_values": "123456787|asdaswdx"
+});
+
+req.end(function (res) {
+  if (res.error) throw new Error(res.error);
+  console.log(res.body);
+});
+
+</code></pre>
+<blockquote>
+Quick Transactional Route Success Response:
+</blockquote>
+<pre><code class="language-json">{
+    "return": true,
+    "request_id": "drhgp7cjyqxvfe9",
+    "message": [
+        "Message sent successfully"
+    ]
+}</code></pre>
+<p>This endpoint will send Quick Transactional SMS using POST method.</p>
+<h3>HTTP Request</h3>
+<p><code>POST https://www.fast2sms.com/dev/bulk</code></p>
+<h3>Headers</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>authorization</td>
+<td>Provide "<code><b>YOUR_API_KEY</b></code>". <a href="https://www.fast2sms.com/dashboard/dev-api" target="_blank">Sign up for API Key</a></td>
+</tr>
+</tbody>
+</table>
+<aside class="success">
+You must replace <code><b>YOUR_API_KEY</b></code> with your Fast2SMS account <a target="_blank" href="https://www.fast2sms.com/dashboard/dev-api">API Authorization Key.</a>
+</aside>
+<h3>Body</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sender_id</td>
+<td>true</td>
+<td>"<b><code>FSTSMS</code></b>" is the default sender id, you can create your own custom 6 digit sender id on <a href="https://www.fast2sms.com/help/sender-id-terms-and-conditions/" target="_blank">Fast2SMS.</a></td>
+</tr>
+<tr>
+<td>language</td>
+<td>true</td>
+<td>Use "<b><code>english</code></b>". You can't use other languages in Quick Transactional</td>
+</tr>
+<tr>
+<td>route</td>
+<td>true</td>
+<td>Use "<b><code>qt</code></b>" as its Quick Transactional route</td>
+</tr>
+<tr>
+<td>numbers</td>
+<td>true</td>
+<td>You can send multiple mobile numbers seperated by comma like: "<code><b>8888888888,9999999999,6666666666</b></code>"</td>
+</tr>
+<tr>
+<td>message</td>
+<td>true</td>
+<td>Your Template ID like "<code><b>786</b></code>", get your ID <a href="https://www.fast2sms.com/dev/quick-templates?authorization=YOUR_API_KEY" target="_blank">here</a></td>
+</tr>
+<tr>
+<td>variables</td>
+<td>true</td>
+<td>Variables used like: "<code><b>{#AA#}|{#EE#}|{#CC#}</b></code>" seperated by pipe "|".<br><b>NOTE:</b><br>1) Sequence of variables must be same which was used at the time of creation.<br>2) If your message don't have any variables you can skip variables field.</td>
+</tr>
+<tr>
+<td>variables_values</td>
+<td>true</td>
+<td>Above variables values like: "<code><b>Rahul|8888888888|6695</b></code>" seperated by pipe "|".<br><b>NOTE:</b><br>1) Use the same variable sequence in which you've created the message.<br>2) If your message don't have any variables you can skip variables_values field.</td>
+</tr>
+<tr>
+<td>flash</td>
+<td>false</td>
+<td>This field is optional, it will use "<code><b>0</b></code>" as default value or you can set to "<code><b>1</b></code>" for sending <a href="https://www.fast2sms.com/help/flash-sms/" target="_blank">flash message.</a></td>
+</tr>
+</tbody>
+</table>
+-->
+ 
+ <!--
+<h1>Wallet Balance API</h1>
+<blockquote>
+<p><b>GET</b> https://www.fast2sms.com/dev/wallet?authorization=YOUR_API_KEY</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+  https://www.fast2sms.com/dev/wallet \
+  -H 'authorization: YOUR_API_KEY'</code></pre>
+<pre><code class="language-php"><?php
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://www.fast2sms.com/dev/wallet",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_SSL_VERIFYHOST => 0,
+  CURLOPT_SSL_VERIFYPEER => 0,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_HTTPHEADER => array(
+    "authorization: YOUR_API_KEY"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}</code></pre>
+<pre><code class="language-javascript">var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://www.fast2sms.com/dev/wallet",
+  "method": "POST",
+  "headers": {
+    "authorization": "YOUR_API_KEY"
+  }
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});</code></pre>
+<pre><code class="language-ruby">require 'uri'
+require 'net/http'
+
+url = URI("https://www.fast2sms.com/dev/wallet")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Post.new(url)
+request["authorization"] = 'YOUR_API_KEY'
+
+response = http.request(request)
+puts response.read_body</code></pre>
+<pre><code class="language-python">import requests
+
+url = "https://www.fast2sms.com/dev/wallet"
+
+headers = {
+    'authorization': "YOUR_API_KEY",
+    }
+
+response = requests.request("POST", url, headers=headers)
+
+print(response.text)</code></pre>
+<pre><code class="language-csh">var client = new RestClient(<span style="color:#e6db74;">"https://www.fast2sms.com/dev/wallet?authorization=YOUR_API_KEY"</span>);
+var request = new RestRequest(Method.GET);
+IRestResponse response = client.Execute(request);</code></pre>
+<pre><code class="language-c">CURL *hnd = curl_easy_init();
+
+curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, <span style="color:#e6db74;">"GET"</span>);
+curl_easy_setopt(hnd, CURLOPT_URL, <span style="color:#e6db74;">"https://www.fast2sms.com/dev/wallet?authorization=YOUR_API_KEY"</span>);
+
+CURLcode ret = curl_easy_perform(hnd);</code></pre>
+<pre><code class="language-java">HttpResponse<String> response = Unirest.post("https://www.fast2sms.com/dev/wallet")
+  .header("authorization", "YOUR_API_KEY")
+  .asString();</code></pre>
+<pre><code class="language-nodejs">var unirest = require("unirest");
+
+var req = unirest("POST", "https://www.fast2sms.com/dev/wallet");
+
+req.headers({
+  "authorization": "YOUR_API_KEY"
+});
+
+
+req.end(function (res) {
+  if (res.error) throw new Error(res.error);
+
+  console.log(res.body);
+});
+</code></pre>
+<blockquote>
+Wallet Balance Success Response
+</blockquote>
+<pre><code class="language-json">{
+    "return": true,
+    "wallet": "493.20"
+}</code></pre>
+<p>You can check Fast2SMS wallet balance using this API</p>
+
+<p><code><b>GET</b> https://www.fast2sms.com/dev/wallet?authorization=YOUR_API_KEY</code></p>
+<p><code><b>POST</b> authorization: YOUR_API_KEY</code></p>
+<aside class="notice">
+You must replace <code><b>YOUR_API_KEY</b></code> with your Fast2SMS account <a target="_blank" href="https://www.fast2sms.com/dashboard/dev-api">API Authorization Key</a> which look like this: "<code>weBQKBrtZzLnD2ZUEnUYJIO40zZGnjgZm3BA1SAUd0qZ56gHm0k3X45DWR9c</code>"
+</aside>
+
+<h1>Error Codes</h1>
+<blockquote>
+<p>412 Invalid Authentication (401 Status Code)</p>
+</blockquote>
+<pre><code class="language-json">{
+    "return": false,
+    "status_code": 412,
+    "message": "Invalid Authentication, Check Authorization Key"
+}</code></pre>
+-->
+<aside class="notice">FREE2SMS API will return 200 response code on success & return 301 or 302 when an error occurs.<br>In return you'll get different types of status code listed below:</aside>
+<p>Following error codes will be used in Fast2SMS API:</p>
+<table>
+<thead>
+<tr>
+<th>Response Code</th>
+<th>Status Code</th>
+<th>Message</th>
+</tr>
+</thead>
+<tbody>
+<tr style="cursor: pointer;">
+<td>301</td>
+<td>302</td>
+<td>No Balance</td>
+</tr>
+<tr style="cursor: pointer;">
+<td>502</td>
+<td>402</td>
+<td>API Mismatch</td>
+</tr>
+<tr style="cursor: pointer;">
+<td>420</td>
+<td>425</td>
+<td>Banded User</td>
+</tr>
+<!--
+<tr style="cursor: pointer;">
+<td>400</td>
+<td>404</td>
+<td>Language Missing</td>
+</tr>
+<tr style="cursor: pointer;">
+<td>400</td>
+<td>405</td>
+<td>Numbers Missing</td>
+</tr>
+<tr style="cursor: pointer;">
+<td>400</td>
+<td>406</td>
+<td>Invalid Sender ID</td>
+</tr>
+<tr style="cursor: pointer;">
+<td>400</td>
+<td>407</td>
+<td>Invalid words used in message</td>
+</tr>
+<tr style="cursor: pointer;">
+<td>400</td>
+<td>408</td>
+<td>Invalid Route</td>
+</tr>
+<tr style="cursor: pointer;">
+<td>400</td>
+<td>409</td>
+<td>Invalid Route Authentication</td>
+</tr>
+<tr style="cursor: pointer;">
+<td>400</td>
+<td>410</td>
+<td>Invalid Language</td>
+</tr>
+<tr style="cursor: pointer;">
+<td>400</td>
+<td>411</td>
+<td>Invalid Numbers</td>
+</tr>
+<tr style="cursor: pointer;">
+<td>401</td>
+<td>412</td>
+<td>Invalid Authentication, Check Authorization Key</td>
+</tr>
+<tr style="cursor: pointer;">
+<td>401</td>
+<td>413</td>
+<td>Invalid Authentication, Authorization Key Disabled</td>
+</tr>
+<tr style="cursor: pointer;">
+<td>400</td>
+<td>414</td>
+<td>IP is blacklisted from Dev API section</td>
+</tr>
+<tr style="cursor: pointer;">
+<td>400</td>
+<td>415</td>
+<td>Account Disabled</td>
+</tr>
+<tr style="cursor: pointer;">
+<td>400</td>
+<td>416</td>
+<td>You don't have sufficient wallet balance</td>
+</tr>
+<tr style="cursor: pointer;">
+<td>400</td>
+<td>417</td>
+<td>Use english letters or change language to unicode</td>
+</tr>
+<tr style="cursor: pointer;">
+<td>400</td>
+<td>418</td>
+<td>Invalid Quick Transactional Template ID.</td>
+</tr>
+<tr style="cursor: pointer;">
+<td>400</td>
+<td>419</td>
+<td>Quick Transactional Template Variables Missing</td>
+</tr>
+<tr style="cursor: pointer;">
+<td>400</td>
+<td>420</td>
+<td>Invalid Quick Transactional Variables</td>
+</tr>
+<tr style="cursor: pointer;">
+<td>400</td>
+<td>421</td>
+<td>Quick Transactional Template Variable Values Missing</td>
+</tr>
+<tr style="cursor: pointer;">
+<td>400</td>
+<td>422</td>
+<td>Invalid Variable Values or Some Values Missing</td>
+</tr>
+<tr style="cursor: pointer;">
+<td>400</td>
+<td>423</td>
+<td>Transactional Route is active, Use Bulk SMS API.</td>
+</tr>-->
+</tbody>
+</table>
+ </div>
+
+<div class="dark-box">
+<div class="lang-selector">
+<!--
+<a href="#" data-language-name="bash">cURL</a>
+-->
+<a href="#" data-language-name="php">PHP</a>
+<!--
+<a href="#" data-language-name="java">JAVA</a>
+<a href="#" data-language-name="csh">C#</a>
+<a href="#" data-language-name="c">C</a>
+<a href="#" data-language-name="python">Python</a>
+<a href="#" data-language-name="ruby">Ruby</a>
+<a href="#" data-language-name="javascript">JavaScript</a>
+<a href="#" data-language-name="nodejs">NodeJS</a>
+-->
+</div>
+</div>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
